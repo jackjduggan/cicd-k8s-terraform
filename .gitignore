@@ -1,0 +1,54 @@
+# gitignore template
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+*.pkl
+
+# Local settings
+local_settings.py
+
+# media folder
+media/
+
+# Static folder at project root
+/static/
+
+# Add any other Django-specific ignore patterns
+db.sqlite3
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Ignore the deployment-related files
+.env
+
+# MacOS specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
