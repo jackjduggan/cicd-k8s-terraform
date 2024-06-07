@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://jackjduggan/cicd-k8s/terraform.git'
+                git 'https://github.com/jackjduggan/cicd-k8s/terraform.git'
             }
         }
         stage('Build Docker Image') {
