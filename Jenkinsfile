@@ -7,22 +7,22 @@ pipeline {
     }
 
     stages {
-        stage('Choutout') {
+        stage('Checkout') {
             steps {
-                git 'https://github.com/jackjduggan/cicd-k8s-terraform.git'
+                git 'https://github.com/your-username/your-repo.git'
             }
         }
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker_image = docker.build("${DOCKER_IMAGE}:${env.BUILD_ID}")
+                    dockerImage = docker.build("${DOCKER_IMAGE}:${env.BUILD_ID}")
                 }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    docker_image.inside {
+                    dockerImage.inside {
                         sh 'python manage.py test'
                     }
                 }
@@ -32,8 +32,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', "${REGISTRY_CREDENTIALS}") {
-                        docker_image.push("${env.BUILD_ID}")
-                        docker_image.push("latest")
+                        dockerImage.push("${env.BUILD_ID}")
+                        dockerImage.push("latest")
                     }
                 }
             }
