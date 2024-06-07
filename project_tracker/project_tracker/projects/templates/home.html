@@ -1,0 +1,10 @@
+<div>
+    {% for project in projects %}
+        <div class="projectname">
+            <a href="{% url 'project_detail' project.id %}">
+                <h3>{{ project.name|capfirst }}</h3>
+            </a>
+            <p>{{ project.description }}</p>
+        </div>
+    {% endfor %}
+</div>

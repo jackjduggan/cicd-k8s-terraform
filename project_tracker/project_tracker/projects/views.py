@@ -4,9 +4,9 @@ from django.http import Http404
 from .models import Project
 
 # Create your views here.
-def project_list(request):
+def home(request):
     projects = Project.objects.all()
-    return render(request, 'project_list.html', {
+    return render(request, 'home.html', {
         'projects': projects
     })
 
