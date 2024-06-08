@@ -22,7 +22,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    dockerImage.inside("-v ${WORKSPACE}:/app -w /app/project_tracker/project_tracker") {
+                    dockerImage.inside("-v ${WORKSPACE}:/app -w /app/project_tracker") {
                         sh 'ls -la'
                         sh 'python manage.py test'
                     }
