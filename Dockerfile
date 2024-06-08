@@ -16,7 +16,7 @@ WORKDIR /app/project_tracker/project_tracker
 # Debug
 RUN ls -l /app/project_tracker/project_tracker 
 
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
 
 RUN python manage.py migrate
 
