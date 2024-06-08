@@ -10,6 +10,9 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/jackjduggan/cicd-k8s-terraform.git'
+                script {
+                    echo "Workspace directory: ${WORKSPACE}"
+                }
             }
         }
         stage('Build Docker Image') {
@@ -23,7 +26,8 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside("-v ${WORKSPACE}:/app -w /app/project_tracker") {
-                        sh 'ls -la'
+                        sh 'ls -la /app'
+                        sh 'ls -la /app/project_tracker'
                         sh 'python manage.py test'
                     }
                 }
