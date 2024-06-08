@@ -11,10 +11,10 @@ COPY . /app/
 
 RUN ls -l /app
 
-WORKDIR /app/project_tracker
+WORKDIR /app/project_tracker/project_tracker
 
 # Debug
-RUN ls -l /app/project_tracker 
+RUN ls -l /app/project_tracker/project_tracker 
 
 RUN python manage.py collectstatic --noinput
 
