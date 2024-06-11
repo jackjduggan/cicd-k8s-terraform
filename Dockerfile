@@ -1,19 +1,26 @@
 FROM python:3
 
-WORKDIR /app
+# set working directory
+WORKDIR /usr/src/app
 
-COPY requirements.txt /app/
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
+# install pip dependencies
+COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-COPY . /app/
+# copy project over
+COPY . .
 
-RUN ls -l /app
+# debug
+RUN ls -l .
 
 WORKDIR /app/project_tracker/project_tracker
 
-# Debug
+# debug
 RUN ls -l /app/project_tracker/project_tracker 
 
 # RUN python manage.py collectstatic --noinput
